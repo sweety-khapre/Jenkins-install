@@ -1,0 +1,58 @@
+README
+Jenkins-installation-easy-step
+                                                  ## Installing Jenkins on Ubuntu
+Step 1: Launch an instance in aws with (AMI: ubuntu, instance type: t2.medium)
+1 instance_img
+
+Step 2: SSh (use mobaxterm or any terminal cmd: ssh -i ubuntu@public ip)
+2 ssh
+
+Step 3: sudo su -----(root login)
+Step 4: apt update -y -----first update the server
+3update_instance
+
+Step 5: apt install fontconfig openjdk-17-jre -y ----install java
+Step 6: Installing Jenkins
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc
+https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee
+/etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt-get update
+
+sudo apt-get install jenkins -y
+
+4 jenkins_installation
+
+Step 7: Goto aws console EC2 service
+Step 8: Add inbound rule in security group as (all traffic and anywhere ipv4)
+Step 9: copy public ip and paste in browser with port no. () ---you will see the jenkins page
+5 sg
+
+Step 10: now, copy the path from there starting from (/var/lib)
+6 jenkins_page
+
+Step 11: then goto terminal paste that path with as (cat /var/lib/jenkins/secrets/initialAdminPassword)
+7 cmd
+
+Step 12: you will get the password copy and paste in the admin. password which is in browser jenkins page.
+8 admin_pass
+
+Step 13: customize jenkins (click) on install suggested plugins
+9 getting_started
+
+Step 14: give credentials: user1 > pass: 12345
+confirm pass: 12345 > fullname: admin : email: admin@gmail.com > (click) save and continue > save and finish > (click) star using jenkins
+
+10 user_cred
+
+Step 15: Now, (click) save and continue
+Step: 16: Then, (click) Start using jenkins.
+11 start_jenkins
+
+There you will see the Jenkins dashboard..!
+12 jenkins_dashboard
+
+                            
